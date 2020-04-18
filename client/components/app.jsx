@@ -22,7 +22,7 @@ class App extends React.Component {
       sum += grades[i].grade;
     }
     const average = sum / grades.length;
-    return Math.round(average);
+    return Math.ceil(average);
   }
 
   getGrades() {
