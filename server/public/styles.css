@@ -1,3 +1,21 @@
-*{
-  background-color: blue;
+body {
+  margin: 2rem;
+}
+tr:nth-child(odd) {
+  background-color: rgb(232, 230, 230);
+}
+th {
+  background-color: white
+}
+.badge {
+  background-color: rgb(172, 172, 172);
+}
+div {
+  display: flex;
+}
+form {
+  padding: 1.5rem;
+}
+.delete-button {
+  border-radius: 5px;;
 }
