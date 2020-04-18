@@ -1,8 +1,35 @@
 import React from 'react';
+import GradeTable from './gradeTable';
+import PageTitle from './page-title';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      grades: []
+    };
+  }
+
+  componentDidMount() {
+    this.getGrades();
+  }
+
+  getGrades() {
+    fetch('/api/grades')
+      .then(response => response.json())
+      .then(data => this.setState({ grades: data }))
+      .catch(error => console.error(error));
+  }
+
   render() {
-    return null;
+    return (
+      <main>
+        <PageTitle/>
+        <div>
+          <GradeTable grade={this.state.grades}/>
+        </div>
+      </main>
+    );
   }
 }
 
