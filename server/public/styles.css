@@ -10,19 +10,10 @@ tr:nth-child(odd) {
 th {
   background-color: white
 }
-.badge {
-  background-color: rgb(172, 172, 172);
-}
 main {
   width: 5000px;
 }
 div {
   display: flex;
   justify-content: center;
-}
-form {
-  padding: 1.5rem;
-}
-.delete-button {
-  border-radius: 5px;;
 }

@@ -2,7 +2,6 @@ import React from 'react';
 
 function Grade(props) {
   const grade = props.grade;
-  // const idAttr = `grade${grade.id}`;
   return (
     <tr>
       <td name={grade.name}>{grade.name}</td>
