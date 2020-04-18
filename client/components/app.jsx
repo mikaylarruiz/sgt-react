@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
+import GradeTable from './gradeTable';
+import PageTitle from './page-title';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,15 +19,18 @@ class App extends React.Component {
   getGrades() {
     fetch('/api/grades')
       .then(response => response.json())
-      .then(gradesData => this.setState({ gradesData }))
+      .then(data => this.setState({ grades: data }))
       .catch(error => console.log(error));
   }
 
   render() {
     return (
-      <header className="row align-items-end mt-4 mb-4">
-        <h1>Student Grade Table</h1>
-      </header>
+      <main>
+        <PageTitle/>
+        <div>
+          <GradeTable grade={this.state.grades}/>
+        </div>
+      </main>
     );
   }
 }

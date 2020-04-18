@@ -1,6 +1,9 @@
 body {
   margin: 2rem;
 }
+header {
+  padding: 2rem;
+}
 tr:nth-child(odd) {
   background-color: rgb(232, 230, 230);
 }
@@ -12,6 +15,7 @@ th {
 }
 div {
   display: flex;
+  justify-content: center;
 }
 form {
   padding: 1.5rem;
