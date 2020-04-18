@@ -2,7 +2,7 @@ body {
   margin: 2rem;
 }
 header {
-  padding: 2rem;
+ justify-content: center;
 }
 tr:nth-child(odd) {
   background-color: rgb(232, 230, 230);
@@ -12,6 +12,9 @@ th {
 }
 .badge {
   background-color: rgb(172, 172, 172);
+}
+main {
+  width: 5000px;
 }
 div {
   display: flex;
