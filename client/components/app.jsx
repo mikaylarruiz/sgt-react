@@ -32,6 +32,19 @@ class App extends React.Component {
       .catch(error => console.error(error));
   }
 
+  postGrades(data) {
+    fetch('/api/grades', {
+      method: 'POST',
+      headers: { 'Content-Type': 'aaplication/json' },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        const newGrade = this.state.grades.concat(data);
+        this.setState({ grades: newGrade });
+      });
+  }
+
   render() {
     const grades = this.state.grades;
     return (
