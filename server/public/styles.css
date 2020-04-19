@@ -17,6 +17,9 @@ div {
   display: flex;
   justify-content: center;
 }
+form {
+  padding: 1.5rem;
+}
 .badge {
   background-color: rgb(172, 172, 172);
 }

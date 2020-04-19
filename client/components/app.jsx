@@ -2,6 +2,7 @@
 import React from 'react';
 import GradeTable from './gradeTable';
 import PageTitle from './page-title';
+import GradeForm from './grade-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class App extends React.Component {
         <PageTitle average={this.getAverageGrade(grades)}/>
         <div>
           <GradeTable grade={this.state.grades}/>
+          <GradeForm/>
         </div>
       </main>
     );
