@@ -25,23 +25,18 @@ class GradeForm extends React.Component {
   }
 
   handleChangeGrade(event) {
-    this.setState({ grade: this.target.value });
+    this.setState({ grade: event.target.value });
   }
 
   handleSubmit(event) {
-    event.preventDeafault();
+    event.preventDefault();
     const newGrade = {
       name: this.state.name,
       course: this.state.course,
       grade: this.state.grade
     };
     this.props.onSubmit(newGrade);
-    this.setState({
-      name: '',
-      course: '',
-      grade: ''
-    });
-    this.props.onSubmit(newGrade);
+    this.reset();
   }
 
   reset() {
@@ -55,7 +50,7 @@ class GradeForm extends React.Component {
   render() {
     return (
       <aside className="col-4">
-        <form className=" pr-0">
+        <form className=" pr-0" onSubmit={this.handleSubmit}>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text"><i className="fas fa-user"></i></span>

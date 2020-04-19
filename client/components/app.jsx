@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import GradeTable from './gradeTable';
 import PageTitle from './page-title';
@@ -21,10 +21,14 @@ class App extends React.Component {
   getAverageGrade(grades) {
     let sum = 0;
     for (let i = 0; i < grades.length; i++) {
-      sum += grades[i].grade;
+      if (this.state.grades.grade) {
+        sum += parseInt(grades[i].grade);
+      } else if (this.state.grades.grade === undefined) {
+        return 0;
+      }
+      const average = sum / grades.length;
+      return Math.ceil(average);
     }
-    const average = sum / grades.length;
-    return Math.ceil(average);
   }
 
   getGrades() {
@@ -37,7 +41,7 @@ class App extends React.Component {
   postGrades(data) {
     fetch('/api/grades', {
       method: 'POST',
-      headers: { 'Content-Type': 'aaplication/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
       .then(response => response.json())
