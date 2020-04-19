@@ -11,6 +11,7 @@ class App extends React.Component {
       grades: []
     };
     this.getAverageGrade = this.getAverageGrade.bind(this);
+    this.postGrades = this.postGrades.bind(this);
   }
 
   componentDidMount() {
@@ -53,7 +54,7 @@ class App extends React.Component {
         <PageTitle average={this.getAverageGrade(grades)}/>
         <div>
           <GradeTable grade={this.state.grades}/>
-          <GradeForm/>
+          <GradeForm onSubmit={this.postGrades}/>
         </div>
       </main>
     );
