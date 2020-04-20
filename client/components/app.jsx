@@ -1,7 +1,8 @@
-/* eslint-disable no-unused-vars */
+
 import React from 'react';
 import GradeTable from './gradeTable';
 import PageTitle from './page-title';
+import GradeForm from './grade-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class App extends React.Component {
       grades: []
     };
     this.getAverageGrade = this.getAverageGrade.bind(this);
+    this.postGrades = this.postGrades.bind(this);
   }
 
   componentDidMount() {
@@ -18,11 +20,11 @@ class App extends React.Component {
 
   getAverageGrade(grades) {
     let sum = 0;
-    for (let i = 0; i < grades.length; i++) {
-      sum += grades[i].grade;
+    for (let i = 0; i < this.state.grades.length; i++) {
+      sum += parseInt(this.state.grades[i].grade);
     }
-    const average = sum / grades.length;
-    return Math.ceil(average);
+    const average = Math.ceil(sum / this.state.grades.length);
+    return average;
   }
 
   getGrades() {
@@ -32,6 +34,19 @@ class App extends React.Component {
       .catch(error => console.error(error));
   }
 
+  postGrades(data) {
+    fetch('/api/grades', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        const newGrade = this.state.grades.concat(data);
+        this.setState({ grades: newGrade });
+      });
+  }
+
   render() {
     const grades = this.state.grades;
     return (
@@ -39,6 +54,7 @@ class App extends React.Component {
         <PageTitle average={this.getAverageGrade(grades)}/>
         <div>
           <GradeTable grade={this.state.grades}/>
+          <GradeForm onSubmit={this.postGrades}/>
         </div>
       </main>
     );
