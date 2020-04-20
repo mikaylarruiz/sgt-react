@@ -20,15 +20,11 @@ class App extends React.Component {
 
   getAverageGrade(grades) {
     let sum = 0;
-    for (let i = 0; i < grades.length; i++) {
-      if (this.state.grades.grade) {
-        sum += parseInt(grades[i].grade);
-      } else if (this.state.grades.grade === undefined) {
-        return 0;
-      }
-      const average = sum / grades.length;
-      return Math.ceil(average);
+    for (let i = 0; i < this.state.grades.length; i++) {
+      sum += parseInt(this.state.grades[i].grade);
     }
+    const average = Math.ceil(sum / this.state.grades.length);
+    return average;
   }
 
   getGrades() {
