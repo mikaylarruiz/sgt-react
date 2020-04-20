@@ -1,40 +1,16 @@
 {
   "grades": [
     {
-      "id": 5,
-      "name": "Kyle Simpson",
-      "course": "JavaScript",
-      "grade": 100
-    },
-    {
-      "id": 12,
-      "name": "Brendan Eich",
-      "course": "JavaScript",
-      "grade": 100
-    },
-    {
-      "id": 32,
-      "name": "Douglas Crockford",
-      "course": "JavaScript",
-      "grade": 80
-    },
-    {
       "name": "Mikayla",
       "course": "Web",
       "grade": "90",
-      "id": 33
+      "id": 1
     },
     {
       "name": "Mikayla",
       "course": "Web",
       "grade": "80",
-      "id": 34
-    },
-    {
-      "name": "Mikayla",
-      "course": "Web",
-      "grade": "65",
-      "id": 35
+      "id": 2
     }
   ]
 }
