@@ -25,6 +25,9 @@ class App extends React.Component {
       sum += parseInt(this.state.grades[i].grade);
     }
     const average = Math.ceil(sum / this.state.grades.length);
+    if (this.state.grades.length < 1) {
+      return 0;
+    }
     return average;
   }
 
@@ -50,7 +53,7 @@ class App extends React.Component {
 
   deleteGrade(gradeId) {
     const newGrades = [];
-    this.state.grades.forEach((grade, index) => {
+    this.state.grades.forEach(grade => {
       if (grade.id !== gradeId) {
         newGrades.push(grade);
       }
@@ -61,7 +64,6 @@ class App extends React.Component {
       .then(response => response.json())
       .then(gradeDeleted => this.setState({ grades: newGrades }))
       .catch(error => console.error(error));
-
   }
 
   render() {

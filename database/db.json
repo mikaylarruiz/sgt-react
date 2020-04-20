@@ -2,14 +2,8 @@
   "grades": [
     {
       "name": "Mikayla",
-      "course": "Web",
-      "grade": "90",
-      "id": 1
-    },
-    {
-      "name": "Mikayla",
-      "course": "Web",
-      "grade": "80",
+      "course": "Web Development",
+      "grade": "75",
       "id": 2
     }
   ]
